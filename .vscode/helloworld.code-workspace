@@ -1,0 +1,60 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../Documents/polarr/helloworld/website"
+		},
+		{
+			"path": "../Documents/GitHub/lab_rainbow-JabbarYusuf1"
+		},
+		{
+			"path": "../Documents/GitHub/lab_redcross-JabbarYusuf1"
+		},
+		{
+			"path": "../Documents/GitHub/lab_simplemath-JabbarYusuf1"
+		},
+		{
+			"path": "../Documents/GitHub/lab_snackbar-JabbarYusuf1"
+		},
+		{
+			"path": "../Documents/GitHub/lab_stars-JabbarYusuf1"
+		},
+		{
+			"path": "../Documents/GitHub/lab_stringtoolbox-JabbarYusuf1"
+		},
+		{
+			"path": "../Documents/GitHub/lab_typealongpractice01-JabbarYusuf1"
+		},
+		{
+			"path": "../Documents/GitHub/lab_walkertest-JabbarYusuf1"
+		},
+		{
+			"path": "../Documents/GitHub/lab_welcomemessage-JabbarYusuf1"
+		},
+		{
+			"path": "../Documents/GitHub/lsn_carcontroller-JabbarYusuf1"
+		},
+		{
+			"path": "../Documents/GitHub/lsn_switchlesson-JabbarYusuf1"
+		},
+		{
+			"path": "../Documents/GitHub/typ_calculator-JabbarYusuf1"
+		},
+		{
+			"path": "../Documents/GitHub/typ_loopslesson-JabbarYusuf1"
+		},
+		{
+			"path": "../Documents/GitHub/wup_immutablemutable-JabbarYusuf1"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"string": "cpp",
+			"iostream": "cpp",
+			"iomanip": "cpp",
+			"ostream": "cpp"
+		}
+	}
+}

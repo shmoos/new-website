@@ -1,0 +1,7 @@
+[
+    {
+        "directory": "/path/to/project",
+        "command": "/usr/bin/clang++ -std=c++14 -Iinclude -c main.cpp",
+        "file": "main.cpp"
+    }
+]
