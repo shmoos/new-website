@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Focus Timer</title>
+<title>Study Timer by shmoos</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
@@ -36,10 +36,11 @@ DEFAULT: '8px',
 <style>
 :where([class^="ri-"])::before { content: "\f3c2"; }
 .theme-minimal {
+/* background-image: url() */
 background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
 }
 .theme-nature {
-background-image: url('https://public.readdy.ai/ai/img_res/44e3e7e09664ffa0d428338eb079c846.jpg');
+background-image: url('https://live.staticflickr.com/4261/34649555303_24af4f85e3_h.jpg');
 background-size: cover;
 background-size: 100% 100%; 
 }
@@ -100,11 +101,7 @@ font-size: 4rem;
 <button class="preset-time px-4 py-2 bg-gray-100 rounded-button hover:bg-gray-200 transition-all cursor-pointer" data-time="45">45 min</button>
 <div class="w-full flex justify-center mt-4">
 <div class="flex items-center gap-2">
-<<<<<<< HEAD
 <input type="number" id="customMinutes" min="1" max="180" placeholder="Custom minutes" class="w-32 px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary text-sm">
-=======
-<input type="number" id="customMinutes" min="1"  placeholder="Custom minutes" class="w-32 px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary text-sm">
->>>>>>> 5e39751 (changed the max value of the timer)
 <button id="applyCustomTime" class="px-4 py-2 bg-gray-100 rounded-button hover:bg-gray-200 transition-all cursor-pointer">Apply</button>
 </div>
 </div>
@@ -138,11 +135,11 @@ font-size: 4rem;
 <span>Minimal</span>
 </button>
 <button class="theme-btn p-4 rounded border hover:border-primary cursor-pointer" data-theme="nature">
-<div class="h-20 bg-[url('https://public.readdy.ai/ai/img_res/69eb10eb920ff0dd88635a3ab0b8390e.jpg')] bg-cover rounded mb-2"></div>
+<div class="h-20 bg-[url('https://live.staticflickr.com/4261/34649555303_24af4f85e3_h.jpg')] bg-cover rounded mb-2"></div>
 <span>Nature</span>
 </button>
 <button class="theme-btn p-4 rounded border hover:border-primary cursor-pointer" data-theme="abstract">
-<div class="h-20 bg-[url('https://public.readdy.ai/ai/img_res/45a6fd8e6b1fa1d33018b1dd1be4f644.jpg')] bg-cover rounded mb-2"></div>
+<div class="h-20 bg-[url('https://images3.alphacoders.com/132/1322308.jpeg')] bg-cover rounded mb-2"></div>
 <span>Abstract</span>
 </button>
 <button class="theme-btn p-4 rounded border hover:border-primary cursor-pointer" data-theme="solid">
