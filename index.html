@@ -36,11 +36,19 @@ DEFAULT: '8px',
 <style>
 :where([class^="ri-"])::before { content: "\f3c2"; }
 .theme-minimal {
+<<<<<<< HEAD
 /* background-image: url() */
 background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
 }
 .theme-nature {
 background-image: url('https://live.staticflickr.com/4261/34649555303_24af4f85e3_h.jpg');
+=======
+background-image: url('https://images3.alphacoders.com/132/1322308.jpeg');
+background-size: 100% 100%; 
+}
+.theme-nature {
+background-image: url('https://media.istockphoto.com/id/1305038827/photo/a-beautiful-valley-with-a-river-blue-sky-with-large-clouds-and-bright-sun-aerial.jpg?s=612x612&w=0&k=20&c=2_Y-xkCmXqpfT1-LZokPtKmZQDa9MPr_Hcxaj07Uxfc=');
+>>>>>>> feebf58 (updated index.html file)
 background-size: cover;
 background-size: 100% 100%; 
 }
@@ -143,7 +151,7 @@ font-size: 4rem;
 <span>Abstract</span>
 </button>
 <button class="theme-btn p-4 rounded border hover:border-primary cursor-pointer" data-theme="solid">
-<div class="h-20 bg-gray-50 rounded mb-2"></div>
+<div class="h-20 bg-[url('https://www.solidbackgrounds.com/images/3840x2160/3840x2160-gray-solid-color-background.jpg')]"></div>
 <span>Solid</span>
 </button>
 </div>
@@ -159,10 +167,15 @@ Apply
 </div>
 </div>
 <script>
+// window.onSpotifyIframeApiReady = (IFrameAPI) => { 
+//     const element = document.getElementById('embed-iframe');
+//     const options = { 
+//         uri: "spotify:playlist:37i9dQZF1DXcF6B6QPhFDv"
+//     };
+//     IFrameAPI.createController(element, options, (embed) => {}); 
+// };
 const mockTasks = [
-{ id: 1, text: "Complete project presentation", completed: false },
-{ id: 2, text: "Review weekly reports", completed: true },
-{ id: 3, text: "Team meeting preparation", completed: false }
+{ id: 1, text: "Create New Task", completed: false },
 ];
 let currentTimer = 1500;
 let timerInterval = null;
