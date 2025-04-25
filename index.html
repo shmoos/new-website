@@ -1,329 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Study Timer by shmoos</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-tailwind.config = {
-theme: {
-extend: {
-colors: {
-primary: '#4F46E5',
-secondary: '#6366F1'
-},
-borderRadius: {
-'none': '0px',
-'sm': '4px',
-DEFAULT: '8px',
-'md': '12px',
-'lg': '16px',
-'xl': '20px',
-'2xl': '24px',
-'3xl': '32px',
-'full': '9999px',
-'button': '8px'
-}
-}
-}
-}
-</script>
-<style>
-:where([class^="ri-"])::before { content: "\f3c2"; }
-.theme-minimal {
-<<<<<<< HEAD
-/* background-image: url() */
-background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
-}
-.theme-nature {
-background-image: url('https://live.staticflickr.com/4261/34649555303_24af4f85e3_h.jpg');
-=======
-background-image: url('https://images3.alphacoders.com/132/1322308.jpeg');
-background-size: 100% 100%; 
-}
-.theme-nature {
-background-image: url('https://media.istockphoto.com/id/1305038827/photo/a-beautiful-valley-with-a-river-blue-sky-with-large-clouds-and-bright-sun-aerial.jpg?s=612x612&w=0&k=20&c=2_Y-xkCmXqpfT1-LZokPtKmZQDa9MPr_Hcxaj07Uxfc=');
->>>>>>> feebf58 (updated index.html file)
-background-size: cover;
-background-size: 100% 100%; 
-}
-.theme-abstract {
-background-image: url('https://images3.alphacoders.com/132/1322308.jpeg');
-background-size: cover;
-}
-.theme-solid {
-background-image: url('https://www.solidbackgrounds.com/images/3840x2160/3840x2160-gray-solid-color-background.jpg')
-/* background-color: #f8fafc; */
-}
-.theme-custom { 
-    background-image: url('https://w0.peakpx.com/wallpaper/961/491/HD-wallpaper-a-lofi-romance-love-couple-artist-artwork-digital-art-artstation.jpg')
-    /* background-size: cover; */
-    /* background-size: 100% 100%;  */
-}
-.timer-display {
-font-family: 'Roboto Mono', monospace;
-font-size: 7rem;
-line-height: 1;
-}
-@media (max-width: 640px) {
-.timer-display {
-font-size: 4rem;
-}
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Study Timer by shmoos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#4F46E5',
+            secondary: '#6366F1'
+          },
+          borderRadius: {
+            'button': '8px'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .theme-minimal {
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+    }
+    .theme-nature {
+      background-image: url('https://live.staticflickr.com/4261/34649555303_24af4f85e3_h.jpg');
+      background-size: cover;
+    }
+    .theme-abstract {
+      background-image: url('https://images3.alphacoders.com/132/1322308.jpeg');
+      background-size: cover;
+    }
+    .theme-solid {
+      background-image: url('https://www.solidbackgrounds.com/images/3840x2160/3840x2160-gray-solid-color-background.jpg');
+    }
+    .theme-custom {
+      background-image: url('https://w0.peakpx.com/wallpaper/961/491/HD-wallpaper-a-lofi-romance-love-couple-artist-artwork-digital-art-artstation.jpg');
+      background-size: cover;
+    }
+    .timer-display {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 7rem;
+      line-height: 1;
+    }
+    @media (max-width: 640px) {
+      .timer-display {
+        font-size: 4rem;
+      }
+    }
+  </style>
 </head>
 <body class="min-h-screen theme-minimal transition-all duration-300">
-<div class="container mx-auto px-4 py-8 min-h-screen">
-<header class="flex justify-between items-center mb-12">
-<h1 class="text-5xl font-['Roboto, sans-serif'] text-gray-800">Study Timer</h1>
-<div class="flex items-center gap-4">
-<button id="themeToggle" class="flex items-center gap-2 px-4 py-2 bg-white rounded-button shadow-sm hover:shadow-md transition-all cursor-pointer">
-<i class="ri-palette-line w-5 h-5 flex items-center justify-center"></i>
-<span>Themes</span>
-</button>
-</div>
-</header>
-<main class="flex flex-col lg:flex-row gap-8">
-<div class="flex-1">
-<div class="bg-white/90 rounded-lg p-8 shadow-lg backdrop-blur-sm">
-<div class="timer-display text-center mb-8" id="timerDisplay">25:00</div>
-<div class="flex justify-center gap-4 mb-8">
-<button id="startTimer" class="px-6 py-3 bg-primary text-white rounded-button hover:bg-primary/90 transition-all cursor-pointer flex items-center gap-2">
-<i class="ri-play-line w-5 h-5 flex items-center justify-center"></i>
-<span>Start</span>
-</button>
-<button id="resetTimer" class="px-6 py-3 bg-gray-200 text-gray-700 rounded-button hover:bg-gray-300 transition-all cursor-pointer flex items-center gap-2">
-<i class="ri-restart-line w-5 h-5 flex items-center justify-center"></i>
-<span>Reset</span>
-</button>
-</div>
-<div class="flex flex-wrap justify-center gap-2">
-<button class="preset-time px-4 py-2 bg-gray-100 rounded-button hover:bg-gray-200 transition-all cursor-pointer" data-time="5">5 min</button>
-<button class="preset-time px-4 py-2 bg-gray-100 rounded-button hover:bg-gray-200 transition-all cursor-pointer" data-time="10">10 min</button>
-<button class="preset-time px-4 py-2 bg-gray-100 rounded-button hover:bg-gray-200 transition-all cursor-pointer" data-time="25">25 min</button>
-<button class="preset-time px-4 py-2 bg-gray-100 rounded-button hover:bg-gray-200 transition-all cursor-pointer" data-time="45">45 min</button>
-<div class="w-full flex justify-center mt-4">
-<div class="flex items-center gap-2">
-<input type="number" id="customMinutes" min="1" max="180" placeholder="Custom minutes" class="w-32 px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary text-sm">
-<button id="applyCustomTime" class="px-4 py-2 bg-gray-100 rounded-button hover:bg-gray-200 transition-all cursor-pointer">Apply</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="lg:w-96">
-<div class="bg-white/90 rounded-lg p-6 shadow-lg backdrop-blur-sm">
-<div class="flex justify-between items-center mb-6">
-<h2 class="text-xl font-semibold text-gray-800">Tasks</h2>
-<button id="addTask" class="p-2 bg-primary text-white rounded-button hover:bg-primary/90 transition-all cursor-pointer">
-<i class="ri-add-line w-5 h-5 flex items-center justify-center"></i>
-</button>
-</div>
-<div id="taskList" class="space-y-3">
-</div>
-</div>
-</div>
-</main>
-<div id="themeModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center">
-<div class="bg-white rounded-lg p-6 w-96">
-<div class="flex justify-between items-center mb-4">
-<h3 class="text-lg font-semibold">Choose Theme</h3>
-<button id="closeThemeModal" class="p-2 hover:bg-gray-100 rounded-full cursor-pointer">
-<i class="ri-close-line w-5 h-5 flex items-center justify-center"></i>
-</button>
-</div>
-<div class="grid grid-cols-2 gap-4">
-<button class="theme-btn p-4 rounded border hover:border-primary cursor-pointer" data-theme="minimal">
-<div class="h-20 bg-gradient-to-br from-gray-100 to-gray-200 rounded mb-2"></div>
-<span>Minimal</span>
-</button>
-<button class="theme-btn p-4 rounded border hover:border-primary cursor-pointer" data-theme="nature">
-<div class="h-20 bg-[url('https://live.staticflickr.com/4261/34649555303_24af4f85e3_h.jpg')] bg-cover rounded mb-2"></div>
-<span>Nature</span>
-</button>
-<button class="theme-btn p-4 rounded border hover:border-primary cursor-pointer" data-theme="abstract">
-<div class="h-20 bg-[url('https://images3.alphacoders.com/132/1322308.jpeg')] bg-cover rounded mb-2"></div>
-<span>Abstract</span>
-</button>
-<button class="theme-btn p-4 rounded border hover:border-primary cursor-pointer" data-theme="solid">
-<div class="h-20 bg-[url('https://www.solidbackgrounds.com/images/3840x2160/3840x2160-gray-solid-color-background.jpg')]"></div>
-<span>Solid</span>
-</button>
-</div>
-<div class="mt-4">
-<div class="flex gap-2">
-<input type="text" id="customThemeInput" placeholder="Enter custom theme URL" class="flex-1 px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary">
-<button id="applyCustomTheme" class="px-4 py-2 bg-primary text-white rounded-button hover:bg-primary/90 transition-all">
-Apply
-</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-<script>
-// window.onSpotifyIframeApiReady = (IFrameAPI) => { 
-//     const element = document.getElementById('embed-iframe');
-//     const options = { 
-//         uri: "spotify:playlist:37i9dQZF1DXcF6B6QPhFDv"
-//     };
-//     IFrameAPI.createController(element, options, (embed) => {}); 
-// };
-const mockTasks = [
-{ id: 1, text: "Create New Task", completed: false },
-];
-let currentTimer = 1500;
-let timerInterval = null;
-let isRunning = false;
-function formatTime(seconds) {
-const minutes = Math.floor(seconds / 60);
-const remainingSeconds = seconds % 60;
-return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
-}
-function updateTimerDisplay() {
-document.getElementById('timerDisplay').textContent = formatTime(currentTimer);
-}
-function startTimer() {
-if (!isRunning) {
-isRunning = true;
-document.getElementById('startTimer').innerHTML = `
-<i class="ri-pause-line w-5 h-5 flex items-center justify-center"></i>
-<span>Pause</span>
-`;
-timerInterval = setInterval(() => {
-if (currentTimer > 0) {
-currentTimer--;
-updateTimerDisplay();
-} else {
-clearInterval(timerInterval);
-isRunning = false;
-new Audio('data:audio/wav;base64,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').play();
-}
-}, 1000);
-} else {
-isRunning = false;
-clearInterval(timerInterval);
-document.getElementById('startTimer').innerHTML = `
-<i class="ri-play-line w-5 h-5 flex items-center justify-center"></i>
-<span>Start</span>
-`;
-}
-}
-function resetTimer() {
-clearInterval(timerInterval);
-isRunning = false;
-currentTimer = 1500;
-updateTimerDisplay();
-document.getElementById('startTimer').innerHTML = `
-<i class="ri-play-line w-5 h-5 flex items-center justify-center"></i>
-<span>Start</span>
-`;
-}
-function renderTasks() {
-const taskList = document.getElementById('taskList');
-taskList.innerHTML = '';
-mockTasks.forEach(task => {
-const taskElement = document.createElement('div');
-taskElement.className = 'flex items-center gap-3 p-3 bg-gray-50 rounded';
-taskElement.innerHTML = `
-<input type="checkbox" ${task.completed ? 'checked' : ''} class="w-5 h-5 rounded cursor-pointer"
-onchange="toggleTask(${task.id})">
-<span class="flex-1 ${task.completed ? 'line-through text-gray-400' : ''}">${task.text}</span>
-<button onclick="deleteTask(${task.id})" class="p-1 hover:bg-gray-200 rounded cursor-pointer">
-<i class="ri-delete-bin-line w-5 h-5 flex items-center justify-center"></i>
-</button>
-`;
-taskList.appendChild(taskElement);
-});
-}
-function toggleTask(id) {
-const task = mockTasks.find(t => t.id === id);
-if (task) {
-task.completed = !task.completed;
-renderTasks();
-}
-}
-function deleteTask(id) {
-const index = mockTasks.findIndex(t => t.id === id);
-if (index !== -1) {
-mockTasks.splice(index, 1);
-renderTasks();
-}
-}
-function addTask() {
-const text = prompt('Enter task:');
-if (text) {
-mockTasks.push({
-id: Date.now(),
-text,
-completed: false
-});
-renderTasks();
-}
-}
-document.getElementById('startTimer').addEventListener('click', startTimer);
-document.getElementById('resetTimer').addEventListener('click', resetTimer);
-document.getElementById('addTask').addEventListener('click', addTask);
-document.querySelectorAll('.preset-time').forEach(button => {
-button.addEventListener('click', () => {
-const minutes = parseInt(button.dataset.time);
-currentTimer = minutes * 60;
-updateTimerDisplay();
-});
-});
-document.getElementById('applyCustomTime').addEventListener('click', () => {
-const input = document.getElementById('customMinutes');
-const minutes = parseInt(input.value);
-if (!isNaN(minutes) && minutes > 0 && minutes <= 180) {
-currentTimer = minutes * 60;
-updateTimerDisplay();
-input.value = '';
-} else {
-const errorDiv = document.createElement('div');
-errorDiv.className = 'fixed top-4 right-4 bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded';
-errorDiv.textContent = 'Please enter a valid time between 1 and 180 minutes';
-document.body.appendChild(errorDiv);
-setTimeout(() => errorDiv.remove(), 3000);
-}
-});
-document.getElementById('customMinutes').addEventListener('keypress', (e) => {
-if (e.key === 'Enter') {
-document.getElementById('applyCustomTime').click();
-}
-});
-document.getElementById('themeToggle').addEventListener('click', () => {
-document.getElementById('themeModal').classList.remove('hidden');
-document.getElementById('themeModal').classList.add('flex');
-});
-document.getElementById('closeThemeModal').addEventListener('click', () => {
-document.getElementById('themeModal').classList.add('hidden');
-document.getElementById('themeModal').classList.remove('flex');
-});
-document.querySelectorAll('.theme-btn').forEach(button => {
-button.addEventListener('click', () => {
-const theme = button.dataset.theme;
-document.body.className = `min-h-screen theme-${theme} transition-all duration-300`;
-document.getElementById('themeModal').classList.add('hidden');
-document.getElementById('themeModal').classList.remove('flex');
-});
-});
-document.getElementById('applyCustomTheme').addEventListener('click', () => {
-const customUrl = document.getElementById('customThemeInput').value.trim();
-if (customUrl) {
-document.body.style.backgroundImage = `url('${customUrl}')`;
-document.body.style.backgroundSize = 'cover';
-document.getElementById('themeModal').classList.add('hidden');
-document.getElementById('themeModal').classList.remove('flex');
-document.getElementById('customThemeInput').value = '';
-}
-});
-renderTasks();
-updateTimerDisplay();
-</script>
+  <div class="container mx-auto px-4 py-8 min-h-screen">
+    <header class="flex justify-between items-center mb-12">
+      <h1 class="text-5xl font-['Roboto, sans-serif'] text-gray-800">Study Timer</h1>
+      <div class="flex items-center gap-4">
+        <button id="themeToggle" class="flex items-center gap-2 px-4 py-2 bg-white rounded-button shadow-sm hover:shadow-md transition-all cursor-pointer">
+          <i class="ri-palette-line w-5 h-5 flex items-center justify-center"></i>
+          <span>Themes</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="flex flex-col lg:flex-row gap-8">
+        <div class="mt-12">
+            <h2 class="text-xl font-semibold text-white mb-4">Music</h2>
+            <div class="rounded-lg overflow-hidden shadow-lg">
+              <iframe style="border-radius:12px" 
+              src="https://open.spotify.com/embed/playlist/58CpVqGwzGSJHNx2SIAIVo?utm_source=generator" 
+              width="100%" 
+              height="352" 
+              frameBorder="0" 
+              allowfullscreen="" 
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+              loading="lazy"></iframe>
+                
+            </div>
+          </div>
+          
+      <div class="flex-1">
+        <div class="bg-white/90 rounded-lg p-8 shadow-lg backdrop-blur-sm">
+          <div class="timer-display text-center mb-8" id="timerDisplay">25:00</div>
+          <div class="flex justify-center gap-4 mb-8">
+            <button id="startTimer" class="px-6 py-3 bg-primary text-white rounded-button hover:bg-primary/90 transition-all cursor-pointer flex items-center gap-2">
+              <i class="ri-play-line w-5 h-5 flex items-center justify-center"></i>
+              <span>Start</span>
+            </button>
+            <button id="resetTimer" class="px-6 py-3 bg-gray-200 text-gray-700 rounded-button hover:bg-gray-300 transition-all cursor-pointer flex items-center gap-2">
+              <i class="ri-restart-line w-5 h-5 flex items-center justify-center"></i>
+              <span>Reset</span>
+            </button>
+          </div>
+          <div class="flex flex-wrap justify-center gap-2">
+            <button class="preset-time px-4 py-2 bg-gray-100 rounded-button hover:bg-gray-200 transition-all cursor-pointer" data-time="10">10 min</button>
+            <button class="preset-time px-4 py-2 bg-gray-100 rounded-button hover:bg-gray-200 transition-all cursor-pointer" data-time="50">50 min</button>
+            <button class="preset-time px-4 py-2 bg-gray-100 rounded-button hover:bg-gray-200 transition-all cursor-pointer" data-time="60">60 min</button>
+            <div class="w-full flex justify-center mt-4">
+              <div class="flex items-center gap-2">
+                <input type="number" id="customMinutes" min="1" max="180" placeholder="Custom minutes" class="w-32 px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary text-sm">
+                <button id="applyCustomTime" class="px-4 py-2 bg-gray-100 rounded-button hover:bg-gray-200 transition-all cursor-pointer">Apply</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:w-96">
+        <div class="bg-white/90 rounded-lg p-6 shadow-lg backdrop-blur-sm">
+          <div class="flex justify-between items-center mb-6">
+            <h2 class="text-xl font-semibold text-gray-800">Tasks</h2>
+            <button id="addTask" class="p-2 bg-primary text-white rounded-button hover:bg-primary/90 transition-all cursor-pointer">
+              <i class="ri-add-line w-5 h-5 flex items-center justify-center"></i>
+            </button>
+          </div>
+          <div id="taskList" class="space-y-3"></div>
+        </div>
+      </div>
+    </main>
+
+    <div id="themeModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center">
+      <div class="bg-white rounded-lg p-6 w-96">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-lg font-semibold">Change Theme</h3>
+          <button id="closeThemeModal" class="p-2 hover:bg-gray-100 rounded-full cursor-pointer">
+            <i class="ri-close-line w-5 h-5 flex items-center justify-center"></i>
+          </button>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <button class="theme-btn p-4 rounded border hover:border-primary cursor-pointer" data-theme="minimal">
+            <div class="h-20 bg-gradient-to-br from-gray-100 to-gray-200 rounded mb-2"></div>
+            <span>Minimal</span>
+          </button>
+          <button class="theme-btn p-4 rounded border hover:border-primary cursor-pointer" data-theme="nature">
+            <div class="h-20 bg-[url('https://live.staticflickr.com/4261/34649555303_24af4f85e3_h.jpg')] bg-cover rounded mb-2"></div>
+            <span>Nature</span>
+          </button>
+          <button class="theme-btn p-4 rounded border hover:border-primary cursor-pointer" data-theme="abstract">
+            <div class="h-20 bg-[url('https://images3.alphacoders.com/132/1322308.jpeg')] bg-cover rounded mb-2"></div>
+            <span>Abstract</span>
+          </button>
+          <button class="theme-btn p-4 rounded border hover:border-primary cursor-pointer" data-theme="solid">
+            <div class="h-20 bg-[url('https://www.solidbackgrounds.com/images/3840x2160/3840x2160-gray-solid-color-background.jpg')]"></div>
+            <span>Solid</span>
+          </button>
+        </div>
+        <div class="mt-4">
+          <div class="flex gap-2">
+            <input type="text" id="customThemeInput" placeholder="Enter custom theme URL" class="flex-1 px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary">
+            <button id="applyCustomTheme" class="px-4 py-2 bg-primary text-white rounded-button hover:bg-primary/90 transition-all">Apply</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentTimer = 1500;
+    let timerInterval = null;
+    let isRunning = false;
+
+    function formatTime(seconds) {
+      const minutes = Math.floor(seconds / 60);
+      const remainingSeconds = seconds % 60;
+      return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+    }
+
+    function updateTimerDisplay() {
+      document.getElementById('timerDisplay').textContent = formatTime(currentTimer);
+    }
+
+    function startTimer() {
+      if (!isRunning) {
+        isRunning = true;
+        document.getElementById('startTimer').innerHTML = `<i class="ri-pause-line w-5 h-5"></i><span>Pause</span>`;
+        timerInterval = setInterval(() => {
+          if (currentTimer > 0) {
+            currentTimer--;
+            updateTimerDisplay();
+          } else {
+            clearInterval(timerInterval);
+            isRunning = false;
+            alert("Time's up!");
+          }
+        }, 1000);
+      } else {
+        isRunning = false;
+        clearInterval(timerInterval);
+        document.getElementById('startTimer').innerHTML = `<i class="ri-play-line w-5 h-5"></i><span>Start</span>`;
+      }
+    }
+
+    function resetTimer() {
+      clearInterval(timerInterval);
+      isRunning = false;
+      currentTimer = 1500;
+      updateTimerDisplay();
+      document.getElementById('startTimer').innerHTML = `<i class="ri-play-line w-5 h-5"></i><span>Start</span>`;
+    }
+
+    function applyCustomTime() {
+      const customMinutes = parseInt(document.getElementById('customMinutes').value);
+      if (!isNaN(customMinutes)) {
+        currentTimer = customMinutes * 60;
+        updateTimerDisplay();
+      }
+    }
+
+    document.getElementById('startTimer').addEventListener('click', startTimer);
+    document.getElementById('resetTimer').addEventListener('click', resetTimer);
+    document.getElementById('applyCustomTime').addEventListener('click', applyCustomTime);
+
+    document.querySelectorAll('.preset-time').forEach(button => {
+      button.addEventListener('click', () => {
+        currentTimer = parseInt(button.getAttribute('data-time')) * 60;
+        updateTimerDisplay();
+      });
+    });
+
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      document.getElementById('themeModal').classList.remove('hidden');
+      document.getElementById('themeModal').classList.add('flex');
+    });
+
+    document.getElementById('closeThemeModal').addEventListener('click', () => {
+      document.getElementById('themeModal').classList.add('hidden');
+    });
+
+    document.querySelectorAll('.theme-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        document.body.className = `min-h-screen theme-${button.dataset.theme} transition-all duration-300`;
+        document.getElementById('themeModal').classList.add('hidden');
+      });
+    });
+
+    document.getElementById('applyCustomTheme').addEventListener('click', () => {
+      const url = document.getElementById('customThemeInput').value;
+      if (url) {
+        document.body.className = `min-h-screen theme-custom transition-all duration-300`;
+        document.querySelector('.theme-custom').style.backgroundImage = `url('${url}')`;
+        document.getElementById('themeModal').classList.add('hidden');
+      }
+    });
+
+    updateTimerDisplay();
+  </script>
 </body>
 </html>
